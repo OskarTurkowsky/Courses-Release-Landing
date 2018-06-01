@@ -98,12 +98,10 @@ body{
 /*Responsive*/
 @media screen and (max-width: 768px){
 	.hero-container{
-		display: grid;
 		grid-template-columns: 70px 1fr;
 		grid-template-areas: "badge title"
 							 "description description"
 							 "form-layout form-layout"
 							 "countdown countdown";
-		grid-gap: 10px;
 	}
 }
