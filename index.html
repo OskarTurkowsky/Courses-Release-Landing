@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Platzi-Curso de React.js</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+</head>
+<body>
+	<div class="hero">
+		<div class="hero-container">
+			<div class="badge">
+				<img src="images/badge.png" alt="Platzi React">
+			</div>
+			<h1>Curso de React.js</h1>
+			<p>React es una de las librerías más utilizadas hoy en día para crear aplicaciones web. En este curso podrás dominar la creación de aplicaciones a través de un proyecto que te ayudará a explotar todas las capacidades de esta librería.</p>
+			<div class="form-layout">
+				<form action="" class="form-content">
+					<p>Regístrate a Platzi</p>
+					<input type="text" placeholder="Nombre" required>
+					<input type="email" placeholder="Correo Electronico" required>
+					<button type="submit">Comienza Ahora</button>
+				</form>
+			</div>
+			<div class="countdown">
+				<p id="release">Lanzamiento: </p>
+				<p id="timer">
+					<span id="days">01d</span>
+					<span id="hours">03h</span>
+					<span id="minutes">09m</span>
+					<span id="seconds">05s</span>
+				</p>
+			</div>			
+		</div>
+	</div>
+	<script type="text/javascript" scr="js/">
+		let time = 97745
+		let release = document.getElementById("release")
+		let timer = document.getElementById("timer")
+		let days = document.getElementById("days")
+		let hours = document.getElementById("hours")
+		let minutes = document.getElementById("minutes")
+		let seconds = document.getElementById("seconds")
+
+		const validarDigitos = (numero) => numero>=10? numero + '' :  new Array(2).join('0') + numero
+
+		const interval = setInterval (() =>{
+			auxtime=time
+			time--
+			days.textContent = validarDigitos(Math.floor(auxtime / 86400)) + 'd'
+			auxtime %= 86400
+			hours.textContent = validarDigitos(Math.floor(auxtime / 3600)) + 'h'
+			auxtime %= 3600
+			minutes.textContent = validarDigitos(Math.floor(auxtime / 60)) + 'm'
+			auxtime %= 60
+			seconds.textContent = validarDigitos(Math.floor(auxtime)) + 's'
+
+			//en caso termine el countdown
+			if(time<0){
+				clearInterval(interval)
+				release.textContent = "Encuentra el Curso de React.js en Nuestra Plataforma"
+				timer.style.display = 'none'
+			}
+		}, 1000)
+	</script>
+</body>
+</html>
